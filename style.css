@@ -53,7 +53,11 @@ button{
     margin: 25px 0px;
     padding: 20px;
     gap: 10px;
-    
+}
+
+.librarySummary>*{
+    display: flex;
+    gap: .5em;
 }
 
 .bookGrid{

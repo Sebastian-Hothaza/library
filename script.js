@@ -5,6 +5,7 @@ let myLibrary = [];
 
 
 
+
 const inputTitle = document.querySelector('input[name="inputTitle"]');
 const inputAuthor = document.querySelector('input[name="inputAuthor"]');
 const inputPages = document.querySelector('input[name="inputPages"]');
@@ -37,11 +38,11 @@ addBookBtn.addEventListener('click', e => {
 
     const newCardAuthor = document.createElement('div');
     newCardAuthor.classList.add('author')
-    newCardAuthor.textContent = newBook.author;
+    newCardAuthor.textContent = "Author: " + newBook.author;
 
     const newCardPages = document.createElement('div');
     newCardPages.classList.add('numPages')
-    newCardPages.textContent = newBook.pages;
+    newCardPages.textContent = "Pages: " + newBook.pages;
 
     const newCardRead = document.createElement('div');
     newCardRead.classList.add('read')
@@ -62,6 +63,17 @@ addBookBtn.addEventListener('click', e => {
     grid.appendChild(newCard);
 
 
+    // Update summary counter
+    document.querySelector('#totalBooks>div:nth-child(-n+1)').textContent = 1 + 
+        parseInt(document.querySelector('#totalBooks>div:nth-child(-n+1)').textContent);
+
+    document.querySelector('#totalPages>div:nth-child(-n+1)').textContent = parseInt(newBook.pages) + 
+        parseInt(document.querySelector('#totalPages>div:nth-child(-n+1)').textContent);
+
+    if (newBook.read){
+        document.querySelector('#booksRead>div:nth-child(-n+1)').textContent = 1 + 
+            parseInt(document.querySelector('#booksRead>div:nth-child(-n+1)').textContent);
+    }
 });
 
 
@@ -78,9 +90,6 @@ function addBookToLibrary(Book, arr){
     arr.push(Book);
 }
 
-const myBook = new Book("World of Wonder", "John Smith", 45, false);
-const myBook2 = new Book("World of Wonder 2", "John Smith", 145, false);
-const myBook3 = new Book("World of Wonder 3", "John Smith", 245, false);
 
 function displayBooks(){
     for (let i=0; i<myLibrary.length; i++){
