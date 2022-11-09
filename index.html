@@ -6,9 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
+    <div class="header">
+        Welcome to My Library!
+    </div>
+    <div class="content">
+        <div class="controlPanel">
+            <h2>Manage books</h2>
+            <label for="inputTitle">Title</label>
+            <input type="text" name="inputTitle" id="inputTitle" required>
+
+            <label for="inputAuthor">Author</label>
+            <input type="text" name="inputAuthor" id="inputAuthor" required>
+
+            <label for="inputPages">Total Pages</label>
+            <input type="number" name="inputPages" id="inputPages" required>
+
+
+            <label for="inputRead">Read</label>
+            <input type="checkbox" name="inputRead" id="inputRead">
+
+            <button>Add Book</button>
+
+            <div class="librarySummary">
+                <div id="totalBooks">Total Books: 0</div>
+                <div id="totalPages">Total Pages: 0</div>
+                <div id="booksRead">Books Read: 0</div>
+            </div>
+
+        </div>
+
+        <div class="bookGrid">
+            <div class="card">
+                <div class="title">
+                    Star Wars
+                </div>
+                <div class="author">
+                    John E. McGuire
+                </div>
+                <div class="numPages">
+                    846
+                </div>
+                <div class="read">
+                    true
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
     
 </body>
 </html>
