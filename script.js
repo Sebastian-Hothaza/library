@@ -14,8 +14,7 @@ const inputRead = document.querySelector('input[name="inputRead"]');
 const grid = document.querySelector('.bookGrid');
 
 
-const addBookBtn = document.querySelector('button');
-
+const addBookBtn = document.querySelector('#addBookBtn');
 addBookBtn.addEventListener('click', e => {
     
 
@@ -36,6 +35,16 @@ addBookBtn.addEventListener('click', e => {
     newCardTitle.classList.add('title')
     newCardTitle.textContent = newBook.title;
 
+    // Delete button
+    const newCardDelete = document.createElement('button');
+    newCardDelete.textContent = "X";
+    newCardTitle.appendChild(newCardDelete);
+    newCardDelete.addEventListener('click', e => {
+        console.log("KILL");
+    });
+
+
+
     const newCardAuthor = document.createElement('div');
     newCardAuthor.classList.add('author')
     newCardAuthor.textContent = "Author: " + newBook.author;
@@ -45,10 +54,15 @@ addBookBtn.addEventListener('click', e => {
     newCardPages.textContent = "Pages: " + newBook.pages;
 
     const newCardRead = document.createElement('div');
-    newCardRead.classList.add('read')
-    newCardRead.textContent = newBook.read;
+    if (newBook.read){
+        newCardRead.classList.add('read');
+        newCardRead.textContent = "Read";
+    }else{
+        newCardRead.classList.add('unread');
+        newCardRead.textContent = "Not yet read!";
+    }
 
-    // Create the newCard
+    // Now, create the newCard
     const newCard = document.createElement('div');
     newCard.classList.add('card');
 
@@ -76,6 +90,10 @@ addBookBtn.addEventListener('click', e => {
     }
 });
 
+const removeBookBtn = document.querySelector('#addBookBtn');
+removeBookBtn.addEventListener('click', e => {
+
+});
 
 // Book CTOR
 function Book(title, author, pages, read){
@@ -83,6 +101,14 @@ function Book(title, author, pages, read){
     this.author = author;
     this.pages = pages;
     this.read = read;
+}
+
+Book.prototype.toggleRead = function() {
+    if (this.read){
+        this.read = false;
+    } else {
+        this.read = true;
+    }
 }
 
 // Adds book to the myLibrary array
