@@ -2,6 +2,10 @@
     margin: 0;
 }
 
+button{
+    border:none;
+}
+
 #addBookBtn{
     background-color: orange;
     padding: 10px;
@@ -79,34 +83,44 @@
 }
 
 .card>.title{
+    display: flex;
+    justify-content: space-between;
+
+
     font-size: 30px;
     font-weight: 800;
-    text-align: center;
+    
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: solid 1px;
 
-    flex-wrap: wrap;
-    word-wrap: break-word;
+ 
+
 }
 
 .card>.author, .card>.numPages{
     font-size: 18px;
     font-style: italic;
-    text-align: center;
+    
     margin-bottom: 25px;
 }
 
 .card>.read{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 16px;
-    text-align: center;
+    
     margin-bottom: 25px;
     color: green;
 }
 
 .card>.unread{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 16px;
-    text-align: center;
+    
     margin-bottom: 25px;
     color: red;
 }
