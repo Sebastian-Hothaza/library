@@ -1,10 +1,7 @@
-// TODO
-// Change button to submit OR somehow enforce that title can not be empty
-
 let myLibrary = [];
 
 
-
+const bookForm = document.querySelector('#addBookForm');
 
 const inputTitle = document.querySelector('input[name="inputTitle"]');
 const inputAuthor = document.querySelector('input[name="inputAuthor"]');
@@ -18,6 +15,7 @@ const addBookBtn = document.querySelector('#addBookBtn');
 
 class Book{
     constructor(title, author, pages, read){
+        console.log("book ctor called");
         this.title = title;
         this.author = author;
         this.pages = pages;
@@ -35,9 +33,12 @@ class Book{
 
 
 
-addBookBtn.addEventListener('click', e => {
+bookForm.addEventListener('submit', () => {
     // Create the book and append to the array
-    const newBook = new Book(inputTitle.value, inputAuthor.value, inputPages.value, inputRead.checked);
+    const newBook = new Book(document.querySelector('#inputTitle').value,
+                             document.querySelector('#inputAuthor').value,
+                             document.querySelector('#inputPages').value,
+                             document.querySelector('#inputRead').checked);
     addBookToLibrary(newBook, myLibrary);
     resetFields();
     displayBooks();

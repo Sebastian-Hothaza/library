@@ -15,22 +15,28 @@
     </div>
     <div class="content">
         <div class="controlPanel">
-            <h2>Manage books</h2>
-            <label for="inputTitle">Title</label>
-            <input type="text" name="inputTitle" id="inputTitle" required>
-
-            <label for="inputAuthor">Author</label>
-            <input type="text" name="inputAuthor" id="inputAuthor" required>
-
-            <label for="inputPages">Total Pages</label>
-            <input type="number" name="inputPages" id="inputPages" required>
+            
 
 
-            <label for="inputRead">Read</label>
-            <input type="checkbox" name="inputRead" id="inputRead">
+            <form action="javascript:void(0);" id="addBookForm">
+                <h2>Manage books</h2>
+                <label for="inputTitle">Title</label>
+                <input type="text" name="inputTitle" id="inputTitle" required maxlength="60" placeholder="The Great Gatsby">
+    
+                <label for="inputAuthor">Author</label>
+                <input type="text" name="inputAuthor" id="inputAuthor" required maxlength="30" placeholder="F.Scott Fitzgerald">
+    
+                <label for="inputPages">Total Pages</label>
+                <input type="number" name="inputPages" id="inputPages" required min="5" max="1000" placeholder="208">
+    
+    
+                <label for="inputRead">Read</label>
+                <input type="checkbox" name="inputRead" id="inputRead">
+    
+                <button type="submit" id="addBookBtn">Add Book</button>
 
-            <button id="addBookBtn">Add Book</button>
-
+            </form>
+            
             <div class="librarySummary">
                 <div id="totalBooks">Total Books:<div>0</div></div>
                 <div id="totalPages">Total Pages:<div>0</div></div>
